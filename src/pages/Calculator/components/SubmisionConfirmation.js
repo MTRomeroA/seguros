@@ -29,7 +29,7 @@ const SubmisionConfirmation = () => {
             key={insurance.key}
             className={classNames(
               'relative bg-blue-100/50 rounded flex flex-col gap-1 p-4 text-left',
-              { 'pt-8': insurance.appliedDiscount > 0 }
+              { '': insurance.appliedDiscount > 0 }
             )}
           >
             <p className=''>{insurance.key}</p>
@@ -45,14 +45,14 @@ const SubmisionConfirmation = () => {
               <p className='text-sm text-neutral-600'>No incluye dependientes</p>
             )}
             {insurance.appliedDiscount > 0 && (
-              <p className='text-xs bg-green-600 font-bold p-2 right-0 rounded rounded-br-0 text-white absolute top-0'>- {insurance.appliedDiscount}% <span className='font-normal opacity-60'>*</span></p>
+              <p className='text-xs bg-green-600 font-bold right-0 rounded rounded-br-0 text-white absolute top-0 hidden'>- {insurance.appliedDiscount}% <span className='font-normal opacity-60'>*</span></p>
             )}
           </div>
         ))}
       </div>
       
       {price && price.some((insurance) => insurance.appliedDiscount > 0) && (
-        <p className='text-sm text-neutral-600 italic'>
+        <p className='text-sm text-neutral-600 italic hidden'>
           *Los descuentos pueden aumentar aún más, dependiendo de la suscripción de cada cliente.
         </p>
       )}
